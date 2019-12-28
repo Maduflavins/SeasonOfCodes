@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int n =6;
+        int n =0;
         int m = 1;
         int factorial = 1;
         while(m <= n){
