@@ -1,0 +1,35 @@
+1	sequence, selection repitition
+	if... else
+	definite
+	sentinel
+	control statement
+	0
+	strongly typed
+	postincrement (prefixed)
+2.	a. true		g
+	b. false	g
+	c. false	g
+	d. true		g
+	e. false	b
+	f. false	g
+	g. true		g
+	h. false	g
+	i. false	g
+	j. true		g
+3.	x = x +1
+	X += 1
+	x++
+	++x
+4.	z = x++ + y; //x++;
+	if (count > 10){System.out.println("Count is greater than 10");}
+	--x; total = total - x;
+	q %= divisor; q = q  divisor;
+5.	int sum = 0;
+	int x = 1;
+	sum = sum + x;
+	Sytem.out.printf("Sum is %d", sum);
+6.	Thingy.java (See assignment folder)
+7	left out	Product = 25; x = 6
+8.	closing brace
+	semicolon after else
+9.	variable cannot incremement another variable	Wrong
