@@ -1,0 +1,76 @@
+5.1
+a	for, while		g
+b	after			g
+c	switch			g
+d	continue		g
+e	conditional AND		g
+f	false			g
+g	static			g
+
+5.2
+a	true			b
+b	false			g
+c	false			g
+d	true			g
+e	true			g
+f	false			g
+g	true			g
+
+5.3
+a	int total = 0;					//g
+	int counter = 1;
+	for (counter < 100; counter++){
+		if (num % 2 = 1)
+			total += num;
+	}
+
+	sum = 0;					//theirs
+	for (count = 1; count <= 99; count += 2)
+		sum += count;
+
+	System.out.printf("Sum is " + total);
+b	double power = Math.pow(2.5, 3);		//g
+		return power;
+
+c	public class FormatPrint			//g
+	{
+		public static void main (String[] args)
+		{
+			int i = 1;
+			while (i <= 20){
+				System.out.printf("%d ", i);
+				if (i % 5 != 0){
+					System.out.print('\t');
+				}
+				else {
+					System.out.println();
+				}
+				i++;
+			}
+		}
+	}
+
+d	public class FormatPrint
+	{
+		public static void main (String[] args)
+		{
+			int i;
+
+			for (i = 1; i <= 20; ++i)
+			{
+				System.out.printf("%d ", i);
+				if (i % 5 != 0){
+					System.out.print('\t');
+				}
+				else {
+					System.out.println();
+				}
+			}
+		}
+	}
+
+5.4
+a	remove semicolon after while condition						g
+b	the != will create an infinite loop; use relational operator instead	b	floating-point should be integer. double used in printing instead
+c	cases 1 and 2 will execute; put a break statement afetr case 1			g
+d	n does not have a type; declare a type int for variable n		b	improper relational operator used. Use <= instead
