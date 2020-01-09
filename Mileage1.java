@@ -19,6 +19,7 @@ public class Mileage1
 		{
 			System.out.print("Enter gallons used: ");
 			int gallons = input.nextInt();
+
 			double milesAverage = (double) miles / gallons;
 			System.out.printf("Miles per gallon for this trip: %.2f%n", milesAverage);
 

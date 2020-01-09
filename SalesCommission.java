@@ -32,10 +32,10 @@ public class SalesCommission
 				totalSale += 350.89;
 			}
 
-		System.out.print("Enter an item figure or -1 to exit: ");
-		item = input.nextInt();
+			System.out.print("Enter an item figure or -1 to exit: ");
+			item = input.nextInt();
 
-		counter++;				
+			counter++;				
 		}
 	
 		if (counter != 0){
