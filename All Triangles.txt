@@ -1,0 +1,117 @@
+int star = 10;
+		int space = 0;
+
+		for (int c = 1; c <= 10; c++)
+		{
+			for (int i = 1; i <= star; i++)
+			{
+				System.out.print("*");
+			}
+			for (int j = 1; j <= star; j++) //Check the star for space in this header
+			{
+				System.out.print(" ");
+			}
+			star--;
+			space++;
+			System.out.println();
+		}
+
+**********
+*********
+********
+*******
+******
+*****
+****
+***
+**
+*
+
+
+int star = 1;
+		int space = 10;
+
+		for (int c = 1; c <= 10; c++)
+		{
+			for (int i = 1; i <= space; i++)
+			{
+				System.out.print(" ");
+			}
+			for (int j = 1; j <= star; j++)
+			{
+				System.out.print("*");
+			}
+			star++;
+			space--;
+			System.out.println();
+		}
+
+          *
+         **
+        ***
+       ****
+      *****
+     ******
+    *******
+   ********
+  *********
+ **********
+
+
+int star = 1;
+		int space = 10;
+
+		for (int c = 1; c <= 10; c++)
+		{
+			for (int i = 1; i <= star; i++)
+			{
+				System.out.print("*");
+			}
+			for (int j = 1; j <= space; j++)
+			{
+				System.out.print(" ");
+			}
+			star++;
+			space--;
+			System.out.println();
+		}
+
+*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+**********
+
+int star = 10;
+		int space = 1;
+
+		for (int c = 1; c <= 10; c++)
+		{
+			for (int i = 1; i <= space; i++)
+			{
+				System.out.print(" ");
+			}
+			for (int j = 1; j <= star; j++)
+			{
+				System.out.print("*");
+			}
+			star--;
+			space++;
+			System.out.println();
+		}
+
+ **********
+  *********
+   ********
+    *******
+     ******
+      *****
+       ****
+        ***
+         **
+          *
