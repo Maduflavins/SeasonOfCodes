@@ -1,4 +1,4 @@
-int star = 10;
+		int star = 10;
 		int space = 0;
 
 		for (int c = 1; c <= 10; c++)
@@ -28,7 +28,7 @@ int star = 10;
 *
 
 
-int star = 1;
+		int star = 1;
 		int space = 10;
 
 		for (int c = 1; c <= 10; c++)
@@ -87,7 +87,7 @@ int star = 1;
 *********
 **********
 
-int star = 10;
+		int star = 10;
 		int space = 1;
 
 		for (int c = 1; c <= 10; c++)
