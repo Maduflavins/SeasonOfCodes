@@ -12,11 +12,15 @@ public class ModifyStructureB
 			{
 				System.out.printf("%d ", i);
 			}
+			
+
+
 			/*if (i == 5)
 			{
 				System.out.printf("%nUsed structure to skip printing %d", i);
 			}*/
 			
+
 		}
 	}
 }
