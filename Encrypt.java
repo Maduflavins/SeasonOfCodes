@@ -8,7 +8,11 @@ public class Encrypt{
 
 		System.out.print("Enter a four-figure passcode: ");
 		int num = input.nextInt();
-
+		
+		if (num % 1000 == 0){
+			System.out.println("This is not a four-figure number");
+		}
+	
 		a = ((num / 1000) + 7) % 10;
 		c = (((num / 10) % 10) + 7) % 10;
 		b = (((num / 100) % 10) + 7) % 10;

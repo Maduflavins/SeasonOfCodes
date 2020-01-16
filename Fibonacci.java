@@ -6,15 +6,23 @@ public class Fibonacci{
 
 		long fibonacci = 0;
 		int counter = 0;
-		int a = 1, b = 2, c = 0;
+		int a, b, sum = 0;
+
+		System.out.print("Enter first value: ");
+		a = input.nextInt();
+
+		System.out.print("Enter second value: ");
+		b = input.nextInt();
 
 		System.out.print("Enter fibonacci number: ");
 		int n = input.nextInt();
 
-		while (counter <= n){
-			c = a + b;
-			counter++;
+		for (int i = 1; i <= n; i++){
+			sum = a + b;
+			a = b;
+			b = sum;
+			System.out.printf("%d ", sum);
 		}
-		System.out.print("Fibonacci is " + c);
+		System.out.printf("Fibonacci is " + sum);
 	}
 }

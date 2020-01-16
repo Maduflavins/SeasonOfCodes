@@ -7,7 +7,6 @@ public class Factorial{
 		long factorial = 1;
 		int counter = 0;	
 
-
 		System.out.println("Enter a number: ");
 		int n = input.nextInt();
 	
