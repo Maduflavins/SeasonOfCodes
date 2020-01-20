@@ -1,0 +1,64 @@
+1
+a.	method call		g
+b.	local variable		g
+c.	return			g
+d.	void			g
+e.	method-call		b, top
+f.	LIFO			g
+g.	return a value, reaching end of delimiting brace and reaching the return statement		g
+h.	SecureRandom		g
+i.	location or return address	b, stackframe; activation record
+j.	stack overflow		g
+k.	scope			g
+l.	method overload		g
+
+2.
+a.	class Craps		g
+b.	method rollDie		g
+c.	class Craps		g
+d.	class Craps		g
+e.	method main		g
+
+3.	Refer to textbook; page 236
+
+4.	public static double hypotenuse(double side1, double side2){}	g
+	public static int smallest(int x, int y, int z){}		g
+	public static void instructions(){}				g
+	public static double intpToFloat(int number){}			g
+
+5.	Refer to textbook; page 236
+a.	Error: Method h is declared within method g.
+	Correction: Move the declaration of h outside the declaration of g.
+b.	Error: The method is supposed to return an integer, but does not.
+	Correction: Delete the variable result, and place the statement return x + y; in the method, or add the following statement at the end of the method body: return result
+c.	Error: The semicolon after the right parenthesis of the parameter list is incorrect, and the parameter a should not be redeclared in the method.
+	Correction: Delete the semicolon after the right parenthesis of the parameter list, and delete the declaration float a;.
+d.	Error: The method returns a value when it’s not supposed to.
+	Correction: Change the return type from void to int.
+
+6.
+
+import java.util.Scanner;
+
+public class CalcSphere
+{
+	public static void main (String[] args)
+	{
+		Scanner input = new Scanner (System.in);
+
+		System.out.println("Enter radius");
+		double radius = input.nextDouble();
+
+		double value = sphereVolume(radius);
+
+		System.out.printf("The result is %.2f%n", value);
+	}
+
+
+	public static double sphereVolume(double radius)
+	{
+		double volume = (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
+		return volume;
+	}
+}
+

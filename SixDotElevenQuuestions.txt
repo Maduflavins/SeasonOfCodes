@@ -1,0 +1,11 @@
+6.11 Answer each of the following questions:
+a) What does it mean to choose numbers “at random”?
+b) Why is the nextInt method of class SecureRandom useful for simulating games of
+chance?
+c) Why is it often necessary to scale or shift the values produced by a SecureRandom object?
+d) Why is computerized simulation of real-world situations a useful technique?
+
+a.	This implies choosing a number non-deterministically from a set range of values, whereby each value in the range have an equal chance of being selected
+b.	This is because we can pass the scaling factor into it, to determine the number of values to be selected.
+c.	Scaling helps us set the first figure in the selection (assuming the first number is not supposed to be a zero)
+d.	To find reas where there are lags and where improvements and innovation are most crucuially needed.
