@@ -1,0 +1,266 @@
+					SQL CLASS COMMANDS | MONDAY - 20 JANUARY 2020 			
+
+SELECT *
+FROM SKU_DATA
+WHERE SKU_Description LIKE '%Tent%';
+_____________________________________________________________________
+
+SELECT *
+FROM SKU_DATA
+WHERE Buyer LIKE 'Pete%';
+
+100100	Std. Scuba Tank, Yellow            	Water Sports                  	Pete Hansen                        
+100200	Std. Scuba Tank, Magenta           	Water Sports                  	Pete Hansen                        
+100300	Std. Scuba Tank, Light Blue        	Water Sports                  	Pete Hansen                        
+100400	Std. Scuba Tank, Dark Blue         	Water Sports                  	Pete Hansen                        
+100500	Std. Scuba Tank, Light Green       	Water Sports                  	Pete Hansen                        
+100600	Std. Scuba Tank, Dark Green        	Water Sports                  	Pete Hansen                        
+_____________________________________________________________________
+SELECT *
+FROM SKU_DATA
+WHERE SKU LIKE '%3___%';
+
+203000	Half-dome Tent Vestibule - Wide    	Camping                       	Cindy Lo                           
+301000	Light Fly Climbing Harness         	Climbing                      	Jerry Martin                       
+302000	Locking Carabiner, Oval            	Climbing                      	Jerry Martin  
+______________________________________________________________________
+
+SELECT *
+FROM SKU_DATA
+WHERE SKU LIKE '%2__';
+
+100200	Std. Scuba Tank, Magenta           	Water Sports                  	Pete Hansen                        
+101200	Dive Mask, Med Clear               	Water Sports                  	Nancy Meyers                       
+______________________________________________________________________
+
+SELECT *
+FROM SKU_DATA
+WHERE SKU LIKE '%2__%';
+
+100200	Std. Scuba Tank, Magenta           	Water Sports                  	Pete Hansen                        
+101200	Dive Mask, Med Clear               	Water Sports                  	Nancy Meyers                       
+201000	Half-dome Tent                     	Camping                       	Cindy Lo                           
+202000	Half-dome Tent Vestibule           	Camping                       	Cindy Lo                           
+203000	Half-dome Tent Vestibule - Wide    	Camping                       	Cindy Lo                           
+302000	Locking Carabiner, Oval            	Climbing                      	Jerry Martin                       
+______________________________________________________________________________
+
+SELECT *
+FROM SKU_DATA
+WHERE SKU LIKE '3___%';
+
+301000	Light Fly Climbing Harness         	Climbing                      	Jerry Martin                       
+302000	Locking Carabiner, Oval            	Climbing                      	Jerry Martin
+_____________________________________________________________________________
+
+SELECT *
+FROM CATALOG_SKU_2017
+WHERE CatalogPage IS NULL;
+
+20170003	100400	Std. Scuba Tank, Dark Blue         	Water Sports                  	NULL	2017-08-01
+_____________________________________________________________________________
+
+SELECT *
+FROM CATALOG_SKU_2017
+WHERE CatalogPage IS NOT NULL;
+
+20170001	100100	Std. Scuba Tank, Yellow            	Water Sports                  	23	2017-01-01
+20170002	100300	Std. Scuba Tank, Light Blue        	Water Sports                  	23	2017-01-01
+20170004	101100	Dive Mask, Small Clear             	Water Sports                  	26	2017-01-01
+20170005	101200	Dive Mask, Med Clear               	Water Sports                  	26	2017-01-01
+20170006	201000	Half-dome Tent                     	Camping                       	46	2017-01-01
+20170007	202000	Half-dome Tent Vestibule           	Camping                       	46	2017-01-01
+20170008	301000	Light Fly Climbing Harness         	Climbing                      	77	2017-01-01
+20170009	302000	Locking Carabiner, Oval            	Climbing                      	79	2017-01-01
+______________________________________________________________________________________
+
+SELECT SUM(OrderTotal) AS OrderSum
+FROM RETAIL_ORDER;
+
+OrserSum
+1235.00
+______________________________________________________________________________
+SELECT	SUM(ExtendedPrice) AS OrderItemSum,
+		AVG(ExtendedPrice) AS OrderItemAvg,
+		MIN(ExtendedPrice) AS OrderItemMin,
+		MAX(ExtendedPrice) AS OrderItemMax
+FROM	ORDER_ITEM;
+
+1180.00	168.571428	50.00	300.00
+_______________________________________________________________________________________
+SELECT	COUNT(*) AS NumberOfRows
+FROM ORDER_ITEM;
+7
+_______________________________________________________________________________________
+SELECT	COUNT(DISTINCT Department) AS DeptCount
+FROM SKU_DATA;
+3
+_______________________________________________________________________________________
+SELECT	Department, COUNT(*)
+FROM SKU_DATA
+
+Msg 8120, Level 16, State 1, Line 1
+Column 'SKU_DATA.Department' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
+
+Completion time: 2020-01-20T15:19:17.5352972+01:00
+_____________________________________________________________________________________________
+SELECT	*
+FROM RETAIL_ORDER
+WHERE OrderTotal > AVG(OrderTotal);
+
+Msg 147, Level 15, State 1, Line 3
+An aggregate may not appear in the WHERE clause unless it is in a subquery contained in a HAVING clause or a select list, and the column being aggregated is an outer reference.
+
+Completion time: 2020-01-20T15:24:50.9254339+01:00
+_______________________________________________________________________________________________
+PERFORMING CALCULATIONS IN SQL QUERIES
+
+SELECT	OrderNumber, SKU, (Quantity * Price) AS EP
+FROM ORDER_ITEM
+ORDER BY OrderNumber, SKU;
+
+1000	201000	300.00
+1000	202000	130.00
+2000	101100	200.00
+2000	101200	100.00
+3000	100200	300.00
+3000	101100	100.00
+3000	101200	50.00
+________________________________________________________________________________________________
+SELECT	OrderNumber, SKU
+FROM ORDER_ITEM
+WHERE (Quantity * Price) <> ExtendedPrice
+ORDER BY OrderNumber, SKU;
+
+Nothing came forth
+________________________________________________________________________________________________
+SELECT	OrderNumber, SKU
+FROM ORDER_ITEM
+WHERE (Quantity * Price) <= ExtendedPrice
+ORDER BY OrderNumber, SKU;
+
+1000	201000
+1000	202000
+2000	101100
+2000	101200
+3000	100200
+3000	101100
+3000	101200
+
+SELECT	OrderNumber, SKU
+FROM ORDER_ITEM
+WHERE (Quantity * Price) >= ExtendedPrice
+ORDER BY OrderNumber, SKU;
+
+1000	201000
+1000	202000
+2000	101100
+2000	101200
+3000	100200
+3000	101100
+3000	101200
+____________________________________________________________________________________________________
+SELECT	SKU, SKU_Description, (Buyer + ' in ' + Department) AS
+Sponsor
+FROM SKU_DATA
+ORDER BY SKU;
+
+100100	Std. Scuba Tank, Yellow            	Pete Hansen                         in Water Sports                  
+100200	Std. Scuba Tank, Magenta           	Pete Hansen                         in Water Sports                  
+100300	Std. Scuba Tank, Light Blue        	Pete Hansen                         in Water Sports                  
+100400	Std. Scuba Tank, Dark Blue         	Pete Hansen                         in Water Sports                  
+100500	Std. Scuba Tank, Light Green       	Pete Hansen                         in Water Sports                  
+100600	Std. Scuba Tank, Dark Green        	Pete Hansen                         in Water Sports                  
+101100	Dive Mask, Small Clear             	Nancy Meyers                        in Water Sports                  
+101200	Dive Mask, Med Clear               	Nancy Meyers                        in Water Sports                  
+201000	Half-dome Tent                     	Cindy Lo                            in Camping                       
+202000	Half-dome Tent Vestibule           	Cindy Lo                            in Camping                       
+203000	Half-dome Tent Vestibule - Wide    	Cindy Lo                            in Camping                       
+301000	Light Fly Climbing Harness         	Jerry Martin                        in Climbing                      
+302000	Locking Carabiner, Oval            	Jerry Martin                        in Climbing                      
+______________________________________________________________________________________________________
+SELECT	SKU, SKU_Description, CONCAT(Buyer, ' in ', Department) AS Sponsor
+
+SELECT CONCAT(SKU, SKU_Description) AS Tenement
+FROM SKU_DATA
+ORDER BY SKU;
+
+100100Std. Scuba Tank, Yellow            
+100200Std. Scuba Tank, Magenta           
+100300Std. Scuba Tank, Light Blue        
+100400Std. Scuba Tank, Dark Blue         
+100500Std. Scuba Tank, Light Green       
+100600Std. Scuba Tank, Dark Green        
+101100Dive Mask, Small Clear             
+101200Dive Mask, Med Clear               
+201000Half-dome Tent                     
+202000Half-dome Tent Vestibule           
+203000Half-dome Tent Vestibule - Wide    
+301000Light Fly Climbing Harness         
+302000Locking Carabiner, Oval            
+____________________________________________________________________________________________
+SELECT SKU, SKU_Description, RTRIM(Buyer) +' in '+RTRIM(Department) AS Sponsor
+FROM SKU_DATA
+ORDER BY SKU;
+
+100100	Std. Scuba Tank, Yellow            	Pete Hansen in Water Sports
+100200	Std. Scuba Tank, Magenta           	Pete Hansen in Water Sports
+100300	Std. Scuba Tank, Light Blue        	Pete Hansen in Water Sports
+100400	Std. Scuba Tank, Dark Blue         	Pete Hansen in Water Sports
+100500	Std. Scuba Tank, Light Green       	Pete Hansen in Water Sports
+100600	Std. Scuba Tank, Dark Green        	Pete Hansen in Water Sports
+101100	Dive Mask, Small Clear             	Nancy Meyers in Water Sports
+101200	Dive Mask, Med Clear               	Nancy Meyers in Water Sports
+201000	Half-dome Tent                     	Cindy Lo in Camping
+202000	Half-dome Tent Vestibule           	Cindy Lo in Camping
+203000	Half-dome Tent Vestibule - Wide    	Cindy Lo in Camping
+301000	Light Fly Climbing Harness         	Jerry Martin in Climbing
+302000	Locking Carabiner, Oval            	Jerry Martin in Climbing
+______________________________________________________________________________________________
+SELECT Department, COUNT(SKU) AS NumberOfCatalogItems
+FROM CATALOG_SKU_2017
+WHERE CatalogPage IS NOT NULL
+GROUP BY Department;
+
+Camping                       	2
+Climbing                      	2
+Water Sports                  	4
+_______________________________________________________________________________________________
+SELECT Department, COUNT(SKU) AS NumberOfCatalogItems
+FROM CATALOG_SKU_2017
+WHERE CatalogPage IS NOT NULL
+GROUP BY Department
+HAVING COUNT(SKU) > 2;
+
+Water Sports 4
+_____________________________________________________________________________________________
+SELECT Department, COUNT(SKU) AS NumberOfCatalogItems
+FROM CATALOG_SKU_2017
+WHERE CatalogPage IS NOT NULL
+GROUP BY Department
+
+Camping                       	2
+Climbing                      	2
+Water Sports                  	4
+____________________________________________________________________________________________
+SELECT Department, Buyer, COUNT(SKU) AS Dep_Buyer_SKU_Count
+FROM SKU_DATA
+GROUP BY Department, Buyer;
+
+Camping                       	Cindy Lo                           	3
+Climbing                      	Jerry Martin                       	2
+Water Sports                  	Nancy Meyers                       	2
+Water Sports                  	Pete Hansen                        	6
+____________________________________________________________________________________________
+SELECT Department, COUNT(SKU) AS Dept_SKU_Count
+FROM SKU_DATA
+WHERE SKU <> 302000
+GROUP BY Department
+HAVING COUNT(SKU) > 1
+ORDER BY Dept_SKU_Count;
+
+Camping                       	3
+Water Sports                  	8
+________________________________________________________________________________________
+
+
