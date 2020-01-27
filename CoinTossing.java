@@ -56,7 +56,7 @@ public class CoinTossing
 		if (i != 0)
 		{
 			System.out.printf("There were %d HEADS polled", headPoll);
-			System.out.printf("%nAnd there were %d TAILS polled", tailPoll);
+			System.out.printf("%nThere were %d TAILS polled", tailPoll);
 		}
 		else
 		{

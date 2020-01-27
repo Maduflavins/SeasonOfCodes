@@ -1,26 +1,29 @@
 import java.security.SecureRandom;
 import java.util.Scanner;
 
-public class GuessNumber
+public class GuessNum
 {
 	private static final SecureRandom randomNumber = new SecureRandom();
 	private static final Scanner input = new Scanner (System.in);
 
 	public static void main (String[] args)
 	{
-		int i = 0;
+		int i = 1;
 		int value = guessNumber();
+		int number = 0;
 
-		System.out.print("Guess a number between 1 and 30: ");
-		int number = input.nextInt();
-
-		if (number == value)
+		while (i <= 5)
 		{
-			System.out.println("Congratulations. You guessed the number!");
-		}
+			System.out.print("Guess a number between 1 and 50: ");
+			number = input.nextInt();
 
-		while (i <= 4)
-		{
+			if (number == value)
+			{
+				System.out.println("Congratulations. You guessed the number!");
+				System.out.printf("%nNumber of tries is %d%n", i);
+				break;
+			}
+
 			if (number != value)
 			{
 				if (number > value)
@@ -32,18 +35,17 @@ public class GuessNumber
 					System.out.println("Too low. Try again");
 				}
 			}
+			if (i == 5 && number != value)
+			{
+				System.out.printf("%nWrong tries! The number is %d%n", value);
+			}
 			i++;
-
-			System.out.print("Guess a number between 1 and 30: ");
-			number = input.nextInt();
 		}
-		System.out.printf("The number is %d%n", value);
-	}
+	}	
 
 	public static int guessNumber()
 	{
-		int randNum = 1 + randomNumber.nextInt(30);
+		int randNum = 1 + randomNumber.nextInt(20);
 		return randNum;
 	}
 }
-
