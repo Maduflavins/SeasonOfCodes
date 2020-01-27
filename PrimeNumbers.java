@@ -8,28 +8,29 @@ public class PrimeNumbers
 
 		System.out.println("Prime numbers between 1 and 1000 are: ");
 
-		for (int num = 1; num <= 1000; num++){
-
-		if (num / 1 == num && num / num == 1)
+		for (int num = 1; num <= 1000; num++)
 		{
-			if (num >= 4 && (num % 2 == 0 || num % 3 == 0))
+
+			if (num / 1 == num && num / num == 1)
 			{
-				System.out.printf("%d is not prime%n", num);
+				if (num >= 4 && (num % 2 == 0 || num % 3 == 0))
+				{
+					System.out.printf("%d is not prime%n", num);
+				}
+					else if (num > 5 && num % 5 == 0)
+				{
+					System.out.printf("%d is not prime%n", num);
+				}
+					else if (num > 7 && num % 7 == 0)
+				{
+					System.out.printf("%d is not prime%n", num);
+				}
+				else
+				{
+					System.out.printf("%d is prime%n", num);
+					//System.outf.println(num);
+				}
 			}
-			else if (num > 5 && num % 5 == 0)
-			{
-				System.out.printf("%d is not prime%n", num);
-			}
-			else if (num > 7 && num % 7 == 0)
-			{
-				System.out.printf("%d is not prime%n", num);
-			}
-			else
-			{
-				System.out.printf("%d is prime%n", num);
-				//System.outf.println(num);
-			}
-		}
 		}
 	}
 }
