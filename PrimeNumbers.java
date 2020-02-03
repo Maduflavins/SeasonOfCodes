@@ -10,7 +10,6 @@ public class PrimeNumbers
 
 		for (int num = 1; num <= 1000; num++)
 		{
-
 			if (num / 1 == num && num / num == 1)
 			{
 				if (num >= 4 && (num % 2 == 0 || num % 3 == 0))
