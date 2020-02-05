@@ -30,10 +30,12 @@ public class SideTriangle
 			{
 				System.out.print("*");
 			}
+
 			for (int c = 1; c <= spaceX; c++)
 			{
 				System.out.print(" ");
 			}
+
 			for (int n = 1; n <= starB; n++)
 			{
 				System.out.print("*");

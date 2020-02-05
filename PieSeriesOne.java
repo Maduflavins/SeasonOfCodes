@@ -18,15 +18,6 @@ public class PieSeriesOne
 
 		for (int i =  1; i <= n; i++)
 		{
-			/*if (i % 2 == 0)//even iteration
-			{
-				x = (4 / a);
-			}
-			else if (i % 2 == 1)
-			{
-				x = -(4 / a);
-			}*/
-
 			switch (i % 2)
 			{
 				case 0:

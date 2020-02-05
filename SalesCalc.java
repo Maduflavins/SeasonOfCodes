@@ -29,7 +29,7 @@ public class SalesCalc
 				System.out.print("Enter the quantity of item 2: ");
 				itemQuantity = input.nextInt();
 				itemCost = (itemQuantity * 4.50);
-				totalSale += itemCost;
+				totalSale += itemCost; //itemCost is retailPrice
 			}
 
 			if (item == 2)
